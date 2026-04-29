@@ -16,7 +16,7 @@ public class texti : MonoBehaviour
     public float silinmeSuresi = 2f;
     public float baslangicGecikmesi = 1.5f;
 
-    private bool isTyping = false;
+    //private bool isTyping = false;
     private Coroutine typingCoroutine;
     void Awake()
     {
@@ -29,7 +29,7 @@ public class texti : MonoBehaviour
     }
     private IEnumerator TypeText(string textToType)
     {
-        isTyping = true;
+        //isTyping = true;
         dialogueText.text = "";
         yield return new WaitForSeconds(baslangicGecikmesi);
 
@@ -39,7 +39,7 @@ public class texti : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        isTyping = false;
+        //isTyping = false;
         yield return new WaitForSeconds(silinmeSuresi);
 
         Destroy(gameObject);
