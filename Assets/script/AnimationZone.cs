@@ -24,33 +24,41 @@ public class AnimationZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             if(akil.akilSağliği==100)
             {
                 handDurum.handKapali0.SetActive(true);
-              //  handDurum.handKapali1.SetActive(false);
+                handDurum.handKapali1.SetActive(false);
                 handDurum.handKapali2.SetActive(false);
                 handDurum.handKapali3.SetActive(false);
             } 
             else if(akil.akilSağliği==75)
             {
                  handDurum.handKapali0.SetActive(false);
-                //  handDurum.handKapali1.SetActive(true);
-                  handDurum.handKapali2.SetActive(true);
+                handDurum.handKapali1.SetActive(true);
+                  handDurum.handKapali2.SetActive(false);
                   handDurum.handKapali3.SetActive(false);
             }
             else if(akil.akilSağliği==50)
             {
                  handDurum.handKapali0.SetActive(false);
-                //  handDurum.handKapali1.SetActive(false);
-                  handDurum.handKapali2.SetActive(false);
-                  handDurum.handKapali3.SetActive(true);
+                handDurum.handKapali1.SetActive(false);
+                  handDurum.handKapali2.SetActive(true);
+                  handDurum.handKapali3.SetActive(false);
             }
             else if(akil.akilSağliği==25)
             {
+                handDurum.handKapali0.SetActive(false);
+                handDurum.handKapali1.SetActive(false);
+                  handDurum.handKapali2.SetActive(false);
+                  handDurum.handKapali3.SetActive(true);
+                
+            }
+            else
+            {
                 gameİs=false;
             }
-            
             handDurum.handAçik0.SetActive(false);
-          //  handDurum.handAçik1.SetActive(false);
+          handDurum.handAçik1.SetActive(false);
             handDurum.handAçik2.SetActive(false);
             handDurum.handAçik3.SetActive(false);
+            
             
         }
     }
@@ -64,36 +72,44 @@ public class AnimationZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
 
             handDurum.handKapali0.SetActive(false);
-           // handDurum.handKapali1.SetActive(false);
+           handDurum.handKapali1.SetActive(false);
             handDurum.handKapali2.SetActive(false);
             handDurum.handKapali3.SetActive(false);
 
             if(akil.akilSağliği==100)
             {
                 handDurum.handAçik0.SetActive(true);
-              //  handDurum.handAçik1.SetActive(false);
+              handDurum.handAçik1.SetActive(false);
                 handDurum.handAçik2.SetActive(false);
                 handDurum.handAçik3.SetActive(false);
             } 
             else if(akil.akilSağliği==75)
             {
                  handDurum.handAçik0.SetActive(false);
-                 // handDurum.handAçik1.SetActive(true);
-                  handDurum.handAçik2.SetActive(true);
+                 handDurum.handAçik1.SetActive(true);
+                  handDurum.handAçik2.SetActive(false);
                   handDurum.handAçik3.SetActive(false);
             }
             else if(akil.akilSağliği==50)
             {
                  handDurum.handAçik0.SetActive(false);
-                 // handDurum.handAçik1.SetActive(false);
-                  handDurum.handAçik2.SetActive(false);
-                  handDurum.handAçik3.SetActive(true);
+                 handDurum.handAçik1.SetActive(false);
+                  handDurum.handAçik2.SetActive(true);
+                  handDurum.handAçik3.SetActive(false);
             }
             else if(akil.akilSağliği==25)
+            {   
+                handDurum.handAçik0.SetActive(false);
+                 handDurum.handAçik1.SetActive(false);
+                  handDurum.handAçik2.SetActive(false);
+                  handDurum.handAçik3.SetActive(true);
+                
+            }
+            else
             {
                 gameİs=false;
+                
             }
-            //handDurum.handAçik.SetActive(true);
             
 
             if(item.buyuDoğru==0 || item.buyuDoğru == 2)
@@ -117,31 +133,45 @@ public class AnimationZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if(akil.akilSağliği==100)
             {
                 handDurum.handKapali0.SetActive(true);
-                //handDurum.handKapali1.SetActive(false);
+                handDurum.handKapali1.SetActive(false);
                 handDurum.handKapali2.SetActive(false);
                 handDurum.handKapali3.SetActive(false);
             } 
             else if(akil.akilSağliği==75)
             {
                  handDurum.handKapali0.SetActive(false);
-                 // handDurum.handKapali1.SetActive(true);
-                  handDurum.handKapali2.SetActive(true);
+                 handDurum.handKapali1.SetActive(true);
+                  handDurum.handKapali2.SetActive(false);
                   handDurum.handKapali3.SetActive(false);
             }
             else if(akil.akilSağliği==50)
             {
                  handDurum.handKapali0.SetActive(false);
-                 // handDurum.handKapali1.SetActive(false);
-                  handDurum.handKapali2.SetActive(false);
-                  handDurum.handKapali3.SetActive(true);
+                 handDurum.handKapali1.SetActive(false);
+                  handDurum.handKapali2.SetActive(true);
+                  handDurum.handKapali3.SetActive(false);
             }
             else if(akil.akilSağliği==25)
             {
-                gameİs=false;
+                handDurum.handKapali0.SetActive(false);
+                 handDurum.handKapali1.SetActive(false);
+                  handDurum.handKapali2.SetActive(false);
+                  handDurum.handKapali3.SetActive(true);
+                
+            }
+            else
+            {
+               gameİs=false; 
+               Debug.Log("çıkış");
+                #if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying=false;
+                #else
+                    Application.Quit();
+                #endif
             }
 
         handDurum.handAçik0.SetActive(false);
-       // handDurum.handAçik1.SetActive(false);
+       handDurum.handAçik1.SetActive(false);
         handDurum.handAçik2.SetActive(false);
         handDurum.handAçik3.SetActive(false);
 
