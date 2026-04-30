@@ -9,6 +9,7 @@ public class metre : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandl
 {
     [Header("area")]
     public RectTransform play;
+    public RectTransform continueArea;
     public RectTransform settings;
     public RectTransform quit;
     public float metrehizi=10f;
@@ -48,6 +49,12 @@ public class metre : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandl
         {
             Debug.Log("başladı");
             SceneManager.LoadScene("OpeningAnimation");
+        }
+        else if (RectTransformUtility.RectangleContainsScreenPoint(continueArea, eventData.position, eventData.pressEventCamera))
+        {
+            rectTrans.position=startPos;
+            FindAnyObjectByType<Esc>().OyunaDevamEt();
+            return;
         }
         else if(RectTransformUtility.RectangleContainsScreenPoint(settings, eventData.position, eventData.pressEventCamera))
         {
