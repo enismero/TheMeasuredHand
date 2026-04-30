@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices; //hata mesajı için 
+using System;
 
 public class metre : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 {
@@ -12,6 +14,9 @@ public class metre : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandl
     public float metrehizi=10f;
     private Vector3 startPos;
     private RectTransform rectTrans;
+
+    [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+    public static extern int MessageBox(IntPtr hWnd, string text, string caption, uint type);
 
     void Start()
     {
@@ -42,15 +47,25 @@ public class metre : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandl
         if (RectTransformUtility.RectangleContainsScreenPoint(play, eventData.position, eventData.pressEventCamera))
         {
             Debug.Log("başladı");
-            SceneManager.LoadScene("Main_Scene");
+            SceneManager.LoadScene("OpeningAnimation");
         }
         else if(RectTransformUtility.RectangleContainsScreenPoint(settings, eventData.position, eventData.pressEventCamera))
         {
+
             Debug.Log("ayarlar");
+            string mesaj = "Tasarımcılarımı bekliyorum.";
+            string baslik = "Bu tasarım henüz mevcut değil";
+            uint mesajTipi = 0x10 | 0x00;
+            MessageBox(IntPtr.Zero, mesaj, baslik, mesajTipi);
         }
         else if(RectTransformUtility.RectangleContainsScreenPoint(quit, eventData.position, eventData.pressEventCamera))
         {
             Debug.Log("çıkış");
+            #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying=false;
+            #else
+                Application.Quit();
+            #endif
         }
         StartCoroutine(GeriSayim());
     }
